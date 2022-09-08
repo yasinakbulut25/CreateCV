@@ -1,0 +1,169 @@
+.cv-box.cv2 {
+  --font: 'Comfortaa', cursive;
+  font-family: var(--font);
+}
+.cv-box.cv2 .cv-body {
+  padding: 0;
+}
+.cv-box.cv2 .cv-left {
+  background: linear-gradient(to top, var(--main-color), var(--main-color));
+  position: relative;
+  padding: 30px 20px 0 20px;
+}
+.cv-box.cv2 .cv-left .cv-img {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 0 auto 25px auto;
+}
+.cv-box.cv2 .cv-left .cv-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.cv-box.cv2 .cv-left .cv-title {
+  color: var(--white-color);
+  margin: 15px 0;
+}
+.cv-box.cv2 .cv-left .cv-title::before {
+  content: "";
+  width: 25%;
+  height: 10px;
+  background: linear-gradient(to top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1));
+  bottom: -10px;
+  position: absolute;
+}
+.cv-box.cv2 .cv-left .cv-text {
+  font-size: 0.9rem;
+  color: var(--white-color);
+}
+.cv-box.cv2 .cv-left .cv-text-small {
+  font-size: 0.75rem;
+  color: var(--white-color);
+}
+.cv-box.cv2 .cv-left .cv-list li {
+  color: var(--white-color);
+}
+.cv-box.cv2 .cv-section {
+  position: relative;
+  margin-bottom: 30px;
+}
+.cv-box.cv2 .cv-title {
+  position: relative;
+  color: var(--title-color);
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin: 20px 0;
+}
+.cv-box.cv2 .cv-title::before {
+  content: "";
+  width: 25%;
+  height: 10px;
+  background: linear-gradient(to top, var(--second-color), rgba(255, 255, 255, 0.1));
+  bottom: -12px;
+  position: absolute;
+}
+.cv-box.cv2 .cv-list {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+}
+.cv-box.cv2 .cv-list li {
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+.cv-box.cv2 .cv-list li i {
+  color: var(--white-color);
+  padding-right: 4px;
+}
+.cv-box.cv2 .cv-list li a {
+  color: var(--white-color);
+  text-decoration: none;
+}
+.cv-box.cv2 .level-list li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  align-items: center;
+}
+.cv-box.cv2 .level-bar {
+  position: relative;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  display: block;
+  margin: 5px 0;
+  height: 5px;
+  border-radius: 10px;
+}
+.cv-box.cv2 .level {
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: #fff;
+  height: 5px;
+}
+.cv-box.cv2 .cv-text {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+.cv-box.cv2 .cv-text-small {
+  font-size: 0.75rem;
+  color: var(--text-color);
+}
+.cv-box.cv2 .cv-right {
+  padding: 30px 24px 30px 0;
+}
+.cv-box.cv2 .cv-name {
+  position: relative;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--title-color);
+  margin: 0 0 15px 0;
+}
+.cv-box.cv2 .cv-name::before {
+  content: "";
+  width: 25%;
+  height: 10px;
+  background: linear-gradient(to top, var(--second-color), rgba(255, 255, 255, 0.1));
+  bottom: -8px;
+  position: absolute;
+}
+.cv-box.cv2 .cv-job {
+  font-size: 1rem;
+  color: var(--text-color);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.cv-box.cv2 .cv-step-row {
+  position: relative;
+  padding: 0 12px 10px 12px;
+  border-left: 1px solid var(--second-color);
+  margin: 0;
+}
+.cv-box.cv2 .cv-step-row::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--second-color);
+  left: -15.5px;
+  top: 0;
+  border: 11px solid var(--cv-background);
+}
+.cv-box.cv2 .cv-step-text {
+  position: relative;
+  top: 3px;
+}
+.cv-box.cv2 .cv-step-title {
+  font-size: 1rem;
+  color: var(--title-color);
+}
+.cv-box.cv2 .cv-step-subtitle {
+  font-size: 0.75rem;
+  color: var(--light-color);
+}

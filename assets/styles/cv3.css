@@ -1,0 +1,165 @@
+.cv-box.cv3 {
+  --font: 'Poppins', sans-serif;
+  font-family: var(--font);
+}
+.cv-box.cv3 .cv-header {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  background: var(--main-color);
+  height: 200px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 200px auto;
+}
+.cv-box.cv3 .cv-header .cv-img {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  padding: 0;
+}
+.cv-box.cv3 .cv-header .cv-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cv-box.cv3 .cv-person {
+  padding: 20px;
+}
+.cv-box.cv3 .cv-person .cv-name {
+  position: relative;
+  font-weight: 600;
+  font-size: 2rem;
+  letter-spacing: 1px;
+  color: var(--white-color);
+  margin: 0 0 5px 0;
+}
+.cv-box.cv3 .cv-person .cv-job {
+  font-size: 1rem;
+  color: var(--white-color);
+}
+.cv-box.cv3 .cv-person .cv-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 5px;
+}
+.cv-box.cv3 .cv-person .cv-list li {
+  padding: 1px 0;
+  color: var(--white-color);
+  font-size: .8rem;
+}
+.cv-box.cv3 .cv-person .cv-list li i, .cv-box.cv3 .cv-person .cv-list li a {
+  color: var(--white-color);
+}
+.cv-box.cv3 .cv-body {
+  padding: 0;
+}
+.cv-box.cv3 .cv-left {
+  position: relative;
+  padding: 20px 30px;
+  height: 100%;
+}
+.cv-box.cv3 .cv-section {
+  position: relative;
+}
+.cv-box.cv3 .cv-title {
+  position: relative;
+  color: var(--white-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 1px;
+  margin: 20px 0;
+  padding: 8px 15px;
+  border-radius: 2px;
+  background-color: var(--main-color);
+  display: inline-block;
+}
+.cv-box.cv3 .cv-list {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+}
+.cv-box.cv3 .cv-list li {
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+.cv-box.cv3 .cv-list li i {
+  color: var(--main-color);
+  padding-right: 4px;
+}
+.cv-box.cv3 .cv-list li a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.cv-box.cv3 .level-list li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  align-items: center;
+}
+.cv-box.cv3 .level-bar {
+  position: relative;
+  width: 100%;
+  background-color: #f1f1f1;
+  display: block;
+  margin: 5px 0;
+  height: 5px;
+  border-radius: 10px;
+}
+.cv-box.cv3 .level {
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: var(--main-color);
+  height: 5px;
+}
+.cv-box.cv3 .cv-text {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+.cv-box.cv3 .cv-text-small {
+  font-size: 0.75rem;
+  color: var(--text-color);
+}
+.cv-box.cv3 .cv-right {
+  padding: 20px 30px 20px 0;
+}
+.cv-box.cv3 .cv-step-row {
+  position: relative;
+  padding: 5px 12px;
+  margin: 0;
+}
+.cv-box.cv3 .cv-step-row::before {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: var(--main-color);
+  left: 0;
+  top: 11px;
+}
+.cv-box.cv3 .cv-step-text {
+  position: relative;
+  left: 7px;
+}
+.cv-box.cv3 .cv-step-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 3px;
+}
+.cv-box.cv3 .cv-step-title {
+  font-size: 1rem;
+  color: var(--title-color);
+}
+.cv-box.cv3 .cv-step-subtitle {
+  font-size: 0.75rem;
+  color: var(--light-color);
+}
+.cv-box.cv3 .cv-step-grid .cv-step-subtitle {
+  text-align: right;
+}

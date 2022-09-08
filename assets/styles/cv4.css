@@ -1,0 +1,202 @@
+.cv-box.cv4 {
+  --font: 'Montserrat', sans-serif;
+  font-family: var(--font);
+}
+.cv-box.cv4 .cv-header {
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 0 30px;
+  height: 230px;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: 180px auto;
+}
+.cv-box.cv4 .cv-header .cv-img {
+  position: relative;
+  width: 180px;
+  height: 230px;
+  overflow: hidden;
+  padding: 0;
+  display: grid;
+}
+.cv-box.cv4 .cv-header .cv-img img {
+  position: relative;
+  margin: auto;
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+.cv-box.cv4 .cv-header .cv-img::before {
+  content: "";
+  width: 80px;
+  height: 100%;
+  background: linear-gradient(to bottom, var(--main-color) 60%, var(--second-color));
+  position: absolute;
+}
+.cv-box.cv4 .cv-person {
+  padding: 40px 20px 0 20px;
+}
+.cv-box.cv4 .cv-person .cv-name {
+  position: relative;
+  font-weight: 400;
+  font-size: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  color: var(--title-color);
+  margin: 0 0 5px 0;
+}
+.cv-box.cv4 .cv-person .cv-job {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 1rem;
+  color: var(--light-color);
+}
+.cv-box.cv4 .cv-person .cv-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+}
+.cv-box.cv4 .cv-person .cv-list li {
+  padding: 1px 0;
+  color: var(--text-color);
+}
+.cv-box.cv4 .cv-person .cv-list li i {
+  color: var(--main-color);
+}
+.cv-box.cv4 .cv-person .cv-list li a {
+  color: var(--text-color);
+}
+.cv-box.cv4 .cv-body {
+  padding: 20px 30px;
+}
+.cv-box.cv4 .cv-left {
+  position: relative;
+  height: 100%;
+  padding: 0;
+}
+.cv-box.cv4 .cv-section {
+  position: relative;
+}
+.cv-box.cv4 .cv-title {
+  position: relative;
+  color: var(--title-color);
+  font-weight: 600;
+  font-size: 1.25rem;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  z-index: 9;
+}
+.cv-box.cv4 .cv-title::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 50%;
+  background: var(--second-color);
+  opacity: 0.6;
+  bottom: -3px;
+  left: 1px;
+  z-index: -1 !important;
+}
+.cv-box.cv4 .cv-list {
+  position: relative;
+  list-style-type: none;
+  padding: 0;
+}
+.cv-box.cv4 .cv-list li {
+  font-size: 0.9rem;
+  padding: 4px 0;
+}
+.cv-box.cv4 .cv-list li i {
+  color: var(--main-color);
+  padding-right: 4px;
+}
+.cv-box.cv4 .cv-list li a {
+  color: var(--text-color);
+  text-decoration: none;
+}
+.cv-box.cv4 .level-list li {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  align-items: center;
+}
+.cv-box.cv4 .level-list span {
+  font-weight: 400;
+}
+.cv-box.cv4 .level-bar {
+  position: relative;
+  width: 100%;
+  background-color: #f1f1f1;
+  display: block;
+  margin: 5px 0;
+  height: 5px;
+  border-radius: 10px;
+}
+.cv-box.cv4 .level {
+  border-radius: 10px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: var(--main-color);
+  height: 5px;
+}
+.cv-box.cv4 .cv-text {
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+.cv-box.cv4 .cv-text-small {
+  font-size: 0.75rem;
+  color: var(--text-color);
+}
+.cv-box.cv4 .cv-right {
+  padding: 0;
+}
+.cv-box.cv4 .cv-step {
+  position: relative;
+  margin-left: 5px;
+}
+.cv-box.cv4 .cv-step-row {
+  position: relative;
+  padding: 0 12px 10px 12px;
+  border-left: 1px dashed var(--second-color);
+  margin: 0;
+}
+.cv-box.cv4 .cv-step-row::before {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--second-color);
+  left: -15.5px;
+  top: 0;
+  border: 11px solid var(--cv-background);
+}
+.cv-box.cv4 .cv-step-text {
+  position: relative;
+  top: 3px;
+}
+.cv-box.cv4 .cv-step-title {
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--title-color);
+}
+.cv-box.cv4 .cv-step-subtitle {
+  font-size: 0.75rem;
+  color: var(--light-color);
+}
+.cv-box.cv4 .cv-step-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5px;
+  align-items: center;
+  margin-bottom: 3px;
+}
+.cv-box.cv4 .cv-step-grid .cv-step-subtitle {
+  text-align: right;
+}
