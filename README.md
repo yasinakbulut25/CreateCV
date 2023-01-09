@@ -4,6 +4,8 @@ Bu projemde, bir formdan gelen kullanıcı verileri ile otomatik olarak bir CV o
 
 Kullanıcılara ayrıca sınırsız dil seçeneği de sunulmaktadır. Oluşturulan CV'ler kolayca istenilen dile çevirilebilmektedir. Bu dil seçeneği **Google Translator** desteklidir. Özelleştirilen CV'nin alanlarında kullanıcılar diledikleri gibi yer değişimi yapabilmektedir. Her alanı ister aşağı, yukarı ister sağa, sola kaydırarak alanları istedikleri gibi hizalayabilirler. Sürükle bırak yaparak yer değiştirme işlemi **Sortable.js** kütüphanesi kullanılarak yapılmıştır.
 
+Kullanıcılar ücretsiz bir şekilde CV oluşturabilmektedir. Sisteme kayıt olan kullanıcılar oluşturdukları tüm CV'leri daha sonrasında istediği zaman düzenleyebilirler. Kayıt olmadan da kullanıcılar CV oluşturabilir ancak daha sonra düzenleyemezler. Sisteme kayıt tamamen ücretsizdir.
+
 ## Proje Yayını
 Projeyi canlı olarak görmek ve kullanmak için [cv.yasinakbulut.com](https://cv.yasinakbulut.com) adresini ziyaret edebilirsiniz. [yasinakbulut.com](https://yasinakbulut.com/) sitesi kişisel portfolyo sitesidir, diğer projelerimi, deneyimlerimi ve çalışmalarımı inceleyebilirsiniz.
 
