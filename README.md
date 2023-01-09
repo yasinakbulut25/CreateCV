@@ -2,8 +2,10 @@
 # CV Oluşturma Projesi
 Bu projemde, bir formdan gelen kullanıcı verileri ile otomatik olarak bir CV oluşturulmaktadır ve oluşturulan CV'nin renk, şablon ve font özelliklerinde özelleştirme seçenekleri bulunmaktadır. Projede 6 farklı CV şablonu, 6 farklı font ve 7 farklı renk seçeneği bulunmaktadır. Bu seçenekler kolaylıkla arttırılabilir durumdadır. CV oluşturma sayfasında dark mode seçeneği de bulunmaktadır. Kullanıcılar CV'lerini ister light mode ister dark mode seçeneğine göre yazdırabilmektedirler. 
 
+Kullanıcılara ayrıca sınırsız dil seçeneği de sunulmaktadır. Oluşturulan CV'ler kolayca istenilen dile çevirilebilmektedir. Bu dil seçeneği **Google Translator** desteklidir. Özelleştirilen CV'nin alanlarında kullanıcılar diledikleri gibi yer değişimi yapabilmektedir. Her alanı ister aşağı, yukarı ister sağa, sola kaydırarak alanları istedikleri gibi hizalayabilirler. Sürükle bırak yaparak yer değiştirme işlemi **Sortable.js** kütüphanesi kullanılarak yapılmıştır.
+
 ## Proje Yayını
-Projeyi canlı olarak görmek ve kullanmak için [createcv.kodsatirim.com](https://createcv.kodsatirim.com) adresini ziyaret edebilirsiniz. [kodsatirim.com](https://kodsatirim.com/) sitesi bana aittir.
+Projeyi canlı olarak görmek ve kullanmak için [cv.yasinakbulut.com](https://cv.yasinakbulut.com) adresini ziyaret edebilirsiniz. [yasinakbulut.com](https://yasinakbulut.com/) sitesi kişisel portfolyo sitesidir, diğer projelerimi, deneyimlerimi ve çalışmalarımı inceleyebilirsiniz.
 
 ## Proje Geliştirilmesi ve Örnek Kodları
 
