@@ -1,4 +1,5 @@
-<?php !defined("index") ? header("location: hata") : null ?>
+<?php !defined("index") ? header("location: demo") : null ?>
+
 <?php
 
 if(isset($_POST['createCV'])){
@@ -33,9 +34,15 @@ if(isset($_POST['createCV'])){
         return $subId;
     }
 
-    $submission_id = ControlSubmissionId($submission_id,$data);
+    if(isset($_SESSION['user'])){
+        $submissionUserName = $_SESSION['user'];
+        $userLocationUrl = $siteUrl . "profile/" . $_SESSION['user'];
+    }else{
+        $submissionUserName = "";
+        $userLocationUrl = $siteUrl;
+    }
 
-    $socialMedia = array("instagram","twitter","linkedin","facebook","github");
+    $submission_id = ControlSubmissionId($submission_id,$data);
 
     $fileName = $_FILES["profile"]["name"];
     $fileName =  ChangeImagesName($fileName,$submission_id);
@@ -58,9 +65,11 @@ if(isset($_POST['createCV'])){
                 $linkedin = $_POST['socialMedia'][2];
                 $facebook = $_POST['socialMedia'][3];
                 $github = $_POST['socialMedia'][4];
+                $medium = $_POST['socialMedia'][5];
             }
 
             $addUsers = $data->prepare("insert into users set
+                    username=?,
                     submission_id=?,
                     profile=?,
                     name=?,
@@ -74,13 +83,14 @@ if(isset($_POST['createCV'])){
                     twitter=?,
                     linkedin=?,
                     facebook=?,
-                    github=?
+                    github=?,
+                    medium=?
             ");
 
-            $addUsersProcess = $addUsers->execute(array($submission_id,$newFileName,$name,$jobRole,$phoneNumber,$address,$email,$webSite,$about,$instagram,$twitter,$linkedin,$facebook,$github));
+            $addUsersProcess = $addUsers->execute(array($submissionUserName,$submission_id,$newFileName,$name,$jobRole,$phoneNumber,$address,$email,$webSite,$about,$instagram,$twitter,$linkedin,$facebook,$github,$medium));
             
             // control process
-            if(!$addUsersProcess){ errorMessage("User","2501"); }
+            if(!$addUsersProcess){ errorPage($siteUrl,"User düzenleme işlemi sırasında bir hata oluştu!","2501"); }
             
             for($i=0; $i < count($_POST['expJobRole']); $i++){
                 $expJobRole = $_POST['expJobRole'][$i];
@@ -101,7 +111,7 @@ if(isset($_POST['createCV'])){
                 $addExpProcess = $addExp->execute(array($submission_id,$expJobRole,$expCompanyName,$expStartingYear,$expEndingYear,$expJobDescription));
                 
                 // control process $i = error index
-                if(!$addExpProcess){ errorMessage("Experience","2502-".$i); }
+                if(!$addExpProcess){ errorPage($siteUrl,"Experience düzenleme işlemi sırasında bir hata oluştu!","2502-".$i); }
             }
         
             for($i=0; $i < count($_POST['eduSchool']); $i++){
@@ -119,7 +129,7 @@ if(isset($_POST['createCV'])){
                 $addEduProcess = $addEdu->execute(array($submission_id,$eduSchool,$eduStartingYear,$eduEndingYear));
         
                 // control process $i = error index
-                if(!$addEduProcess){ errorMessage("Education","2503-".$i); }
+                if(!$addEduProcess){ errorPage($siteUrl,"Education düzenleme işlemi sırasında bir hata oluştu!","2503-".$i); }
             }
         
             for($i=0; $i < count($_POST['skillName']); $i++){
@@ -135,7 +145,7 @@ if(isset($_POST['createCV'])){
                 $addSkillProcess = $addSkill->execute(array($submission_id,$skillName,$skillLevel));
                
                 // control process $i = error index
-                if(!$addSkillProcess){ errorMessage("Skill","2504-".$i); }
+                if(!$addSkillProcess){ errorPage($siteUrl,"Skill düzenleme işlemi sırasında bir hata oluştu!","2504-".$i); }
             }
         
             for($i=0; $i < count($_POST['langName']); $i++){
@@ -151,7 +161,7 @@ if(isset($_POST['createCV'])){
                 $addLangProcess = $addLang->execute(array($submission_id,$langName,$langLevel));
         
                 // control process $i = error index
-                if(!$addLangProcess){ errorMessage("Language","2505-".$i); }
+                if(!$addLangProcess){ errorPage($siteUrl,"Language düzenleme işlemi sırasında bir hata oluştu!","2505-".$i); }
             }
         
             if(isset($_POST['certificaName'])){
@@ -167,7 +177,7 @@ if(isset($_POST['createCV'])){
                         $addCertificaProcess = $addCertifica->execute(array($submission_id,$certificaName));
                     
                         // control process $i = error index
-                        if(!$addCertificaProcess){ errorMessage("Certifica","2506-".$i); }
+                        if(!$addCertificaProcess){ errorPage($siteUrl,"Certifica düzenleme işlemi sırasında bir hata oluştu!","2506-".$i); }
                     }else{
                         $addCertificaProcess = true;
                     }
@@ -189,7 +199,7 @@ if(isset($_POST['createCV'])){
                         $addReferenceProcess = $addReference->execute(array($submission_id,$refName,$refJobTitle));
             
                         // control process $i = error index
-                        if(!$addReferenceProcess){ errorMessage("Reference","2507-".$i); }
+                        if(!$addReferenceProcess){ errorPage($siteUrl,"Reference düzenleme işlemi sırasında bir hata oluştu!","2507-".$i); }
                     }else{
                         $addReferenceProcess = true;
                     }
@@ -197,36 +207,19 @@ if(isset($_POST['createCV'])){
             }
 
             if($addUsersProcess && $addExpProcess && $addEduProcess && $addLangProcess && $addCertificaProcess && $addReferenceProcess && $addSkillProcess){
-                allAddSuccess($submission_id);
+                allAddSuccess($siteUrl . "cv/" . $submission_id);
             }
 
         }else{
-            errorMessage("File","2508");
+            errorPage($siteUrl,"File düzenleme işlemi sırasında bir hata oluştu!","2508");
         }
     }else{
-        errorMessage("File","2509");
+        errorPage($siteUrl,"File düzenleme işlemi sırasında bir hata oluştu!","2509");
     }
 
 }
 
-function errorMessage($errorSection,$errorCode){
-    ?>
-    <div class="gridArea">
-        <div class="errorBox">
-            <div class="errorIconBox">
-                <i class="bi bi-x"></i>   
-            </div>
-            <div class="errorMessage">
-                <p>An error occurred while adding <span><?= $errorSection ?></span>!</p>
-                <p>Error Code: <span><?= $errorCode ?></span></p>
-            </div>
-        </div>
-    </div>
-    <?php
-    exit;
-}
-
-function allAddSuccess($subId){
+function allAddSuccess($locationPage){
     ?>
     <div class="gridArea">
         <div class="successBox">
@@ -283,8 +276,17 @@ function allAddSuccess($subId){
         <div class="loadingLine"></div>
         </div>
     </div>
+    <script>
+        const resumes = ["cv1","cv2","cv3","cv4","cv5","cv6"];
+        resumes.forEach(element => {
+            localStorage.removeItem("orderRight-" + element);
+            localStorage.removeItem("orderLeft-" + element);
+            localStorage.removeItem("orderRow");
+            localStorage.removeItem("viewCv");
+        });
+    </script>
     <?php
-    header("refresh: 3; url=$subId");
+    header("refresh: 3; url=$locationPage");
     exit;
 }
 

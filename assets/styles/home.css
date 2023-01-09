@@ -1,0 +1,195 @@
+.home-area{
+    font-family: 'Comfortaa', cursive;
+    padding: 0 30px;
+}
+header{
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    height: 110px;
+}
+.logo a{
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--main-title-color);
+    text-decoration: none;
+    transition: all .3s;
+}
+.logo a:hover{
+    color: var(--purple-color)
+}
+.links ul{
+    list-style-type: none;
+    padding: 0;
+}
+.main{
+    position: relative;
+    width: 100%;
+    display: grid;
+    gap: 25px;
+    margin: 25px 0;
+    grid-template-columns: repeat(auto-fit,minmax(400px,1fr));
+}
+.main-title{
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--main-title-color);
+}
+.main-title b{
+    color: var(--purple-color);
+}
+.main-exp{
+    font-size: 14px;
+    color: var(--main-text-color);
+}
+.main-list{
+    list-style-type: none;
+}
+.main-list li{
+    color: var(--main-text-color);
+    font-size: 14px;
+    padding: 5px 0;
+}
+.main-list li b{
+    font-weight: 600;
+    color: var(--purple-color);
+}
+.main-list li i{
+    padding-right: 5px;
+    color: var(--purple-color);
+}
+.link-btn{
+    position: relative;
+    margin: 25px 15px 25px 0;
+    overflow: hidden;
+    display: inline-block;
+    font-size: 13px;
+    text-decoration: none;
+    padding: 12px 20px;
+    background-color: var(--purple-color);
+    color: #fff;
+    border-radius: 14px;
+    border: 2px solid var(--purple-color);
+    box-shadow: 0 8px 25px #781cf972;
+    font-weight: 600;
+    transition: all .25s;
+}
+.link-btn.green{
+    background-color: #16d899;
+    border-color: #16d899;
+    box-shadow: 0 8px 25px rgb(22, 216, 153,0.447);
+}
+.link-btn.red{
+    background-color: #ff2457;
+    border-color: #ff2457;
+    box-shadow: 0 8px 25px rgb(255, 36, 87, 0.44)
+}
+.link-btn i{
+    padding-left: 10px;
+}
+.link-btn:hover{
+    color: #fff;
+    transform: scale(1.05);
+}
+.main-img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+}
+.main-blur{
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    background: #781cf972;
+    filter: blur(100px);
+    z-index: -1;
+    animation: imgAnimation 3s ease-in-out infinite;
+}
+.main-img img{
+    width: 500px;
+    height: auto;
+    object-fit: cover;
+    animation: imgAnimation 3s ease-in-out infinite ;
+}
+@keyframes imgAnimation {
+    0%{
+        transform: translateY(-30px);
+    }
+    50%{
+        transform: translateY(0px);
+    }
+    100%{
+        transform: translateY(-30px);
+    }
+}
+.register-area{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.login-area{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.register-area #register-form,
+.login-area #register-form{
+    top: 25px;
+    margin: 0;
+    max-width: 90%;
+    padding: 35px;
+    background: var(--form-bg-color);
+    box-shadow: 0 15px 50px #781cf939;
+}
+.register-area #register-form .inputBox,
+.login-area #register-form .inputBox{
+    display: block;
+    margin: 0 0 25px 0;
+}
+.register-area #register-form label,
+.login-area #register-form label,
+.register-area #register-form input,
+.login-area #register-form input{
+    font-size: 14px;
+}
+.register-area #register-form button,
+.login-area #register-form button{
+    display: block;
+    margin: 35px auto 15px auto;
+}
+@media screen and (max-width: 908px) {
+    .home-area{
+        padding: 0 10px;
+    }
+    .main{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .main-title{
+        font-size: 24px;
+    }
+    .main-img{
+        margin-top: 50px;
+    }
+    .main-img img{
+        max-width: 100%;
+    }
+    .register-area #register-form,
+    .login-area #register-form{
+        padding: 25px 18px;
+        max-width: 100%;
+    }
+}
+@media screen and (max-width: 462px) {
+    header{
+        display: block;
+        padding-top: 25px;
+        height: 150px;
+    }
+}

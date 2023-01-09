@@ -1,5 +1,5 @@
 body[light-mode="dark"] {
-  background-color: #111827 !important;
+  background-color: var(--body-bg) !important;
 }
 body[light-mode="dark"] [contenteditable]:focus {
   outline: 2px solid #3C4453;
@@ -9,6 +9,7 @@ body[light-mode="dark"] [contenteditable]:focus {
     background-color: #161E2D !important;
   }
 }
+
 body[light-mode="dark"] .cv-box {
   --cv-background: #161E2D;
   --main-color: #d5885e;
@@ -20,6 +21,7 @@ body[light-mode="dark"] .cv-box {
   font-family: var(--font);
   background-color: var(--cv-background);
 }
+
 body[light-mode="dark"] .cv-choose-text h1 {
   color: #fff;
 }
@@ -30,7 +32,7 @@ body[light-mode="dark"] .side-label {
 body[light-mode="dark"] .cv-side::-webkit-scrollbar-thumb {
   background: #3C4453;
 }
-body[light-mode="dark"] body, body[light-mode="dark"] .cv-side, body[light-mode="dark"] .color-picker, body[light-mode="dark"] .font-picker, body[light-mode="dark"] .font-select-list {
+body[light-mode="dark"] body, body[light-mode="dark"] .cv-side, body[light-mode="dark"] .color-picker, body[light-mode="dark"] .font-picker, body[light-mode="dark"] .font-select-list{
   border-color: #202837;
   background-color: #111827;
 }
@@ -40,9 +42,11 @@ body[light-mode="dark"] .layout-label {
 body[light-mode="dark"] .layout-label.active {
   border-color: #3C4453;
 }
-body[light-mode="dark"] .font-select-label {
-  background-color: #202837;
-  color: #fff;
+body[light-mode="dark"] .font-select-label,
+body[light-mode="dark"] .skiptranslate.goog-te-gadget select.goog-te-combo,
+body[light-mode="dark"] .skiptranslate.goog-te-gadget select.goog-te-combo option{
+  background-color: #202837 !important;
+  color: #fff !important;
 }
 body[light-mode="dark"] .font-label {
   border-color: #202837;

@@ -1,74 +1,75 @@
-<?php !defined("index") ? header("location: hata") : null ?>
+<?php !defined("index") ? header("location: demo") : null ?>
+
 <?php
     
-    include "functions.php";
-
-    if(@$_GET['page']){
-            
-        $submission_id = $_GET['page'];
+    if(@$_GET['content']){
+        $submission_id = $_GET['content'];
 
         $findUser = $data->prepare("SELECT * FROM users where submission_id = ? limit 1");
         $findUser->execute(array($submission_id));
         $fetchUser = $findUser->fetch();
 
-        if($findUser->rowCount()){
-            $profile = $fetchUser['profile'];
-            $name = $fetchUser['name'];
-            $jobRole = $fetchUser['jobRole'];
-            $phoneNumber = $fetchUser['phoneNumber'];
-            $address = $fetchUser['address'];
-            $email = $fetchUser['email'];
-            $webSite = $fetchUser['webSite'];
-            $about = $fetchUser['about'];
-            $instagram = $fetchUser['instagram'];
-            $twitter = $fetchUser['twitter'];
-            $linkedin = $fetchUser['linkedin'];
-            $facebook = $fetchUser['facebook'];
-            $github = $fetchUser['github'];
-
-            // experiences
-            $getExpData = $data->prepare("SELECT * FROM experiences where submission_id=?");
-            $getExpData->execute(array($submission_id));
-            $fetchExpData = $getExpData->fetchAll(PDO::FETCH_ASSOC);
-
-            // educations
-            $getEduData = $data->prepare("SELECT * FROM educations where submission_id=?");
-            $getEduData->execute(array($submission_id));
-            $fetchEduData = $getEduData->fetchAll(PDO::FETCH_ASSOC);
-
-            // skills
-            $getSkillData = $data->prepare("SELECT * FROM skills where submission_id=?");
-            $getSkillData->execute(array($submission_id));
-            $fetchSkillData = $getSkillData->fetchAll(PDO::FETCH_ASSOC);
-
-            // certificates
-            $getCertData = $data->prepare("SELECT * FROM certificates where submission_id=?");
-            $getCertData->execute(array($submission_id));
-            $fetchCertData = $getCertData->fetchAll(PDO::FETCH_ASSOC);
-
-            // reference
-            $getRefData = $data->prepare("SELECT * FROM reference where submission_id=?");
-            $getRefData->execute(array($submission_id));
-            $fetchRefData = $getRefData->fetchAll(PDO::FETCH_ASSOC);
-
-            // languages
-            $getLangData = $data->prepare("SELECT * FROM languages where submission_id=?");
-            $getLangData->execute(array($submission_id));
-            $fetchLangData = $getLangData->fetchAll(PDO::FETCH_ASSOC);
+        if(isset($_SESSION['user'])){
+            $sessionUser = $_SESSION['user'];
         }else{
-            ?>
-            <div class="gridArea">
-                <div class="errorBox">
-                    <div class="errorIconBox">
-                        <i class="bi bi-x"></i>   
-                    </div>
-                    <div class="errorMessage">
-                        <p>User Not Found!</p>
-                    </div>
-                </div>
-            </div>
-            <?php
-            header("refresh: 3; url=$siteUrl");
+            $sessionUser = "";
+        }
+
+        if($findUser->rowCount()){
+
+            if($fetchUser['username'] == $sessionUser){
+                $profile = $fetchUser['profile'];
+                $name = $fetchUser['name'];
+                $jobRole = $fetchUser['jobRole'];
+                $phoneNumber = $fetchUser['phoneNumber'];
+                $address = $fetchUser['address'];
+                $email = $fetchUser['email'];
+                $webSite = $fetchUser['webSite'];
+                $about = $fetchUser['about'];
+                $instagram = $fetchUser['instagram'];
+                $twitter = $fetchUser['twitter'];
+                $linkedin = $fetchUser['linkedin'];
+                $facebook = $fetchUser['facebook'];
+                $github = $fetchUser['github'];
+                $medium = $fetchUser['medium'];
+    
+                // experiences
+                $getExpData = $data->prepare("SELECT * FROM experiences where submission_id=?");
+                $getExpData->execute(array($submission_id));
+                $fetchExpData = $getExpData->fetchAll(PDO::FETCH_ASSOC);
+    
+                // educations
+                $getEduData = $data->prepare("SELECT * FROM educations where submission_id=?");
+                $getEduData->execute(array($submission_id));
+                $fetchEduData = $getEduData->fetchAll(PDO::FETCH_ASSOC);
+    
+                // skills
+                $getSkillData = $data->prepare("SELECT * FROM skills where submission_id=?");
+                $getSkillData->execute(array($submission_id));
+                $fetchSkillData = $getSkillData->fetchAll(PDO::FETCH_ASSOC);
+    
+                // certificates
+                $getCertData = $data->prepare("SELECT * FROM certificates where submission_id=?");
+                $getCertData->execute(array($submission_id));
+                $fetchCertData = $getCertData->fetchAll(PDO::FETCH_ASSOC);
+    
+                // reference
+                $getRefData = $data->prepare("SELECT * FROM reference where submission_id=?");
+                $getRefData->execute(array($submission_id));
+                $fetchRefData = $getRefData->fetchAll(PDO::FETCH_ASSOC);
+    
+                // languages
+                $getLangData = $data->prepare("SELECT * FROM languages where submission_id=?");
+                $getLangData->execute(array($submission_id));
+                $fetchLangData = $getLangData->fetchAll(PDO::FETCH_ASSOC);
+            }else{
+                errorPage($siteUrl,"Erişim hatası!","5501");
+                header("refresh: 3; url=$siteUrl");
+                return;
+            }
+            
+        }else{
+            errorPage($siteUrl,"Kullanıcı bulunamadı!","5502");
             return;
         }
     }else{
@@ -83,8 +84,8 @@
     <div class="cv-area">
         <div class="dark-mode-check">
             <button class="dark-mode-label" onclick="toggle_light_mode()">
-                <i class="bi bi-moon"></i>
                 <i class='bi bi-sun'></i>
+                <i class="bi bi-moon"></i>
                 <div class='ball'></div>
             </button>
         </div>
@@ -97,12 +98,18 @@
                 <button onclick="window.print()" class="print_btn"><i class="bi bi-printer"></i></button>
             </div>
 
-            <div class="font-picker">
-                <label onclick="openFontList()" class="font-select-label">Choose Font <i class="bi bi-arrow-down"></i></label>
+            <div translate="no" class="font-picker">
+                <label onclick="openFontList()" class="font-select-label"><span>Choose Font</span> <i class="bi bi-triangle-fill"></i></label>
                 <div class="font-select-list">
                     <!-- Generating font labels in js -->
                 </div>
+                
+                <div class="lang-picker" id="google_element">
+                    <i class="bi bi-triangle-fill" id="googleElementIcon"></i>
+                </div> 
             </div> 
+
+            
                 
             <div class="layout-picker light">
                 <?php
@@ -127,14 +134,15 @@
 
         
         <?php
-            if(!@$_GET['page']){
+            if(!@$_GET['content']){
+                isset($_SESSION['user']) ? $formUrl = $siteUrl . "form/" . $_SESSION['user'] : $formUrl = $siteUrl . "form";
                 ?>
-                <div class="formLinkArea">
+                <div translate="no" class="formLinkArea">
                     <div class="formLinkBox">
-                        <h1>Create Your CV!</h1>
-                        <p>Enter your information and easily create your resume for free!</p>
-                        <a href="form" class="formLinkText">
-                            <span>Try Now for Free!</span>
+                        <h1>Ücretsiz CV Oluştur!</h1>
+                        <p>Bilgilerini girerek özgeçmişini kolayca oluştur ve dilediğin gibi özelleştir!</p>
+                        <a href="<?= $formUrl ?>" class="formLinkText">
+                            <span>ÜCRETSİZ DENE!</span>
                         </a>
                     </div>
                 </div>
@@ -150,5 +158,21 @@
         ?>
 
     </div>
-    
     <script src="./assets/js/script.js"></script>
+
+    <!-- Google Translate -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script>
+        function googleTranslateElementInit(){
+            new google.translate.TranslateElement({
+                defaultLanguage: "tr",
+                pageLanguage: "tr",
+                // includedLanguages: "tr,ar,az,zh,es,ko,pt,ru,en,de,fr,it",
+                layout: google.translate.TranslateElement.InlineLayout.VERTICAL,
+                autoDisplay: false,
+                multiLanguagePage: true
+            },
+            "google_element",
+            );
+        }
+    </script>

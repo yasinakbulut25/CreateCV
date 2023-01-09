@@ -1,0 +1,105 @@
+.user{
+    position: relative;
+    margin: 25px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.user-name{
+    font-size: 24px;
+    font-weight: 600;
+}
+.user-email{
+    font-size: 13px;
+    color: #781cf9;
+    margin: 0;
+}
+.user-icon a{
+    font-size: 32px;
+    color: #2a2a2a;
+    transition: all .3s;
+}
+.user-icon a:hover{
+    font-size: 32px;
+    color: #781cf9;
+}
+.cv-boxes{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+}
+.cv-preview{
+    position: relative;
+    margin: 15px 25px 0 0
+}
+.cv-preview-name{
+    position: relative;
+    margin: 10px 0;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 600;
+}
+.cv-preview-img{
+    position: relative;
+    width: 150px;
+    height: 200px;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+.cv-preview-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: all .25s;
+}
+.cv-preview-buttons{
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    padding: 15px 0;
+}
+.cv-preview-buttons a{
+    position: relative;
+    font-size: 14px;
+    margin: 0 15px;
+}
+.cv-preview-buttons a .bi-eye{
+    color: #16d899;
+}
+.cv-preview-buttons a .bi-share{
+    color: #781cf9;
+}
+.cv-preview-buttons a .bi-trash{
+    color: #ff2457;
+}
+.cv-edit-icon{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    opacity: 0;
+    cursor: pointer;
+    border-radius: 8px;
+    color:#781cf9;
+    font-size: 30px;
+    transition: all .25s;
+}
+.cv-edit-icon i{
+    z-index: 9;
+}
+.cv-edit-icon:hover{
+    color:#781cf9;
+}
+.cv-preview-img:hover .cv-edit-icon{
+    opacity: 1;
+    background-color: rgba(255, 255, 255, .5);
+}
+.modal-footer button,
+.modal-footer a{
+    margin: 10px !important;
+}

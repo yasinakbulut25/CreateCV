@@ -4,39 +4,31 @@
         <div class="cv-body">
             <div class="row">
                 <div class="col-4">
+                    <div class="drag-handle light right handle-row"><i class="bi bi-arrows-angle-expand"></i></div>
                     <div class="cv-left">
                         <div class="cv-img">
                             <img src="<?= $profile; ?>" alt="profile"></img>
                         </div>
 
                         <div class="cv-section">
-                            <h2 class="cv-title">Personal</h2>
-                            <ul class="cv-list">
-                            <?php
-                                $address ? $addressList = '<li><p class="m-0 cv-text"><strong>Address</strong></p> <span class="m-0 cv-text-small">'.$address.'</span></li>' : $addressList = "";
-                                $email ? $emailList = '<li><p class="m-0 cv-text"><strong>Email</strong></p> <span class="m-0 cv-text-small">'.$email.'</span></li>' : $emailList = "";
-                                $phoneNumber ? $phoneNumberList = '<li><p class="m-0 cv-text"><strong>Telephone</strong></p> <span class="m-0 cv-text-small">'.$phoneNumber.'</span></li>' : $phoneNumberList = "";
-                                $instagram ? $instagramList = '<li><p class="m-0 cv-text"><strong>Instagram</strong></p> <span class="m-0 cv-text-small">'.$instagram.'</span></li>' : $instagramList = "";
-                                $twitter ? $twitterList = '<li><p class="m-0 cv-text"><strong>Twitter</strong></p> <span class="m-0 cv-text-small">'.$twitter.'</span></li>' : $twitterList = "";
-                                $linkedin ? $linkedinList = '<li><p class="m-0 cv-text"><strong>Linkedin</strong></p> <span class="m-0 cv-text-small">'.$linkedin.'</span></li>' : $linkedinList = "";
-                                $facebook ? $facebookList = '<li><p class="m-0 cv-text"><strong>Facebook</strong></p> <span class="m-0 cv-text-small">'.$facebook.'</span></li>' : $facebookList = "";
-                                $github ? $githubList = '<li><p class="m-0 cv-text"><strong>Github</strong></p> <span class="m-0 cv-text-small">'.$github.'</span></li>' : $githubList = "";
-                                $webSite ? $webSiteList = '<li><p class="m-0 cv-text"><strong>Web Site</strong></p> <span class="m-0 cv-text-small">'.$webSite.'</span></li>' : $webSiteList = "";
-
-                                echo $addressList . $emailList . $phoneNumberList . $instagramList . $twitterList . $linkedinList . $facebookList . $githubList . $webSiteList;
-                           ?>
+                            <div class="drag-handle light right"><i class="bi bi-arrows-move"></i></div>
+                            <h2 class="cv-title" contenteditable="true">Personal</h2>
+                            <ul class="cv-list" translate="no">
+                            <?php getSocialMedia($fetchUser,'strong'); ?>
                             </ul>
                         </div>
 
                         <div class="cv-section">
-                            <h2 class="cv-title">Skills</h2>
+                            <div class="drag-handle light right"><i class="bi bi-arrows-move"></i></div>
+                            <h2 class="cv-title" contenteditable="true">Skills</h2>
                             <ul class="cv-list level-list">
                                 <?php getSkills($fetchSkillData,'strong'); ?>
                             </ul>
                         </div>
 
                         <div class="cv-section">
-                            <h2 class="cv-title">Languages</h2>
+                            <div class="drag-handle light right"><i class="bi bi-arrows-move"></i></div>
+                            <h2 class="cv-title" contenteditable="true">Languages</h2>
                             <ul class="cv-list level-list">
                                 <?php getLanguages($fetchLangData,'strong'); ?>
                             </ul>
@@ -46,7 +38,8 @@
                         if(count( $fetchCertData) > 0){
                             ?>
                              <div class="cv-section">
-                                <h2 class="cv-title">Certificates</h2>
+                                <div class="drag-handle light right"><i class="bi bi-arrows-move"></i></div>
+                                <h2 class="cv-title" contenteditable="true">Certificates</h2>
                                 <ul class="cv-list">
                                     <?php getCertificates($fetchCertData,"caret-right"); ?>
                                 </ul>
@@ -58,21 +51,25 @@
                     </div>
                 </div>
                 <div class="col-8">
+                    <div class="drag-handle dark right handle-row"><i class="bi bi-arrows-angle-expand"></i></div>
                     <div class="cv-right">
                         <div class="cv-person">
-                            <h1 class="cv-name"><?= $name ?></h1>
+                            <div class="drag-handle dark right"><i class="bi bi-arrows-move"></i></div>
+                            <h1 class="cv-name" translate="no"><?= $name ?></h1>
                             <p class="cv-text"><?= $about; ?></p>
                         </div>
 
                         <div class="cv-section">
-                            <h2 class="cv-title">Experience</h2>
+                            <div class="drag-handle dark right"><i class="bi bi-arrows-move"></i></div>
+                            <h2 class="cv-title" contenteditable="true">Experience</h2>
                             <div class="cv-step">
                                 <?php getExperiences($fetchExpData,""); ?>
                             </div>
                         </div>
 
                         <div class="cv-section">
-                            <h2 class="cv-title">Education</h2>
+                            <div class="drag-handle dark right"><i class="bi bi-arrows-move"></i></div>
+                            <h2 class="cv-title" contenteditable="true">Education</h2>
                             <div class="cv-step">
                                 <?php getEducations($fetchEduData,""); ?>
                             </div>
@@ -82,7 +79,8 @@
                         if(count( $fetchRefData) > 0){
                             ?>
                             <div class="cv-section">
-                                <h2 class="cv-title">References</h2>
+                                <div class="drag-handle dark right"><i class="bi bi-arrows-move"></i></div>
+                                <h2 class="cv-title" contenteditable="true">References</h2>
                                 <div class="cv-step">
                                     <?php getReferences($fetchRefData,""); ?>
                                 </div>
@@ -97,3 +95,4 @@
         </div>
     </div>
 </div>
+

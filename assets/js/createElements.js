@@ -30,15 +30,11 @@ function createNewExp(){
     const gridFour = document.createElement ("div");
     gridFour.classList.add("grid_four");
 
-    const randomNumber =  Math.floor(Math.random() * 9999) + 1000;
     const deleteDiv = document.createElement("div");
     const deleteBoxIcon = document.createElement("i");
     deleteBoxIcon.className = "bi bi-trash";
-    deleteDiv.setAttribute("onclick","deleteElement('expBox_" + randomNumber +"')");
     deleteDiv.classList.add("deleteBoxIcon");
     deleteDiv.appendChild(deleteBoxIcon);
-
-    expBox.id = "expBox_" + randomNumber; 
 
     expBox.appendChild(deleteDiv);
     
@@ -92,7 +88,6 @@ function createNewExp(){
     
 }
 
-
 function createNewEdu(){
 
     const educationsArea = document.getElementById("educationsArea");
@@ -108,15 +103,11 @@ function createNewEdu(){
     const gridThree = document.createElement ("div");
     gridThree.classList.add("grid_three");
 
-    const randomNumber =  Math.floor(Math.random() * 9999) + 1000;
     const deleteDiv = document.createElement("div");
     const deleteBoxIcon = document.createElement("i");
     deleteBoxIcon.className = "bi bi-trash";
-    deleteDiv.setAttribute("onclick","deleteElement('eduBox_" + randomNumber +"')");
     deleteDiv.classList.add("deleteBoxIcon");
     deleteDiv.appendChild(deleteBoxIcon);
-
-    eduBox.id = "eduBox_" + randomNumber; 
 
     eduBox.appendChild(deleteDiv);
     
@@ -159,15 +150,11 @@ function createNewLevelList(id,label,name,placeholder){
     const grid = document.createElement ("div");
     grid.classList.add("gridBox");
 
-    const randomNumber =  Math.floor(Math.random() * 9999) + 1000;
     const deleteDiv = document.createElement("div");
     const deleteBoxIcon = document.createElement("i");
     deleteBoxIcon.className = "bi bi-trash";
-    deleteDiv.setAttribute("onclick","deleteElement('"+ name +"Box_"+ randomNumber +"')");
     deleteDiv.classList.add("deleteBoxIcon");
     deleteDiv.appendChild(deleteBoxIcon);
-
-    levelBox.id = name  + "Box_" + randomNumber; 
 
     levelBox.appendChild(deleteDiv);
     levelBox.appendChild(grid);
@@ -217,15 +204,11 @@ function createNewCertifica(){
     const gridNone = document.createElement ("div");
     gridNone.classList.add("grid_none");
     
-    const randomNumber =  Math.floor(Math.random() * 9999) + 1000;
     const deleteDiv = document.createElement("div");
     const deleteBoxIcon = document.createElement("i");
     deleteBoxIcon.className = "bi bi-trash";
-    deleteDiv.setAttribute("onclick","deleteElement('certBox_" + randomNumber +"')");
     deleteDiv.classList.add("deleteBoxIcon");
     deleteDiv.appendChild(deleteBoxIcon);
-
-    certBox.id = "certBox_" + randomNumber; 
 
     certBox.appendChild(deleteDiv);
     certBox.appendChild(gridNone);
@@ -265,15 +248,11 @@ function createNewReference(){
     const grid = document.createElement ("div");
     grid.classList.add("grid");
 
-    const randomNumber =  Math.floor(Math.random() * 9999) + 1000;
     const deleteDiv = document.createElement("div");
     const deleteBoxIcon = document.createElement("i");
     deleteBoxIcon.className = "bi bi-trash";
-    deleteDiv.setAttribute("onclick","deleteElement('refBox_"+ randomNumber +"')");
     deleteDiv.classList.add("deleteBoxIcon");
     deleteDiv.appendChild(deleteBoxIcon);
-
-    refBox.id = "refBox_" + randomNumber; 
 
     refBox.appendChild(deleteDiv);
     refBox.appendChild(grid);
@@ -313,9 +292,15 @@ function createNewReference(){
     referencesArea.appendChild(refBox);
 }
 
-function deleteElement(deleteNumber){
-    const deleteBoxSelect = document.getElementById(deleteNumber);
-    deleteBoxSelect.remove();
+const deleteBoxIcon = document.querySelector(".cvCreateForm");
+deleteBoxIcon.addEventListener("click",deleteEl)
+
+function deleteEl(e){
+    if(e.target.className == "bi bi-trash"){
+        e.target.parentElement.parentElement.remove();
+    }else if(e.target.className == "deleteBoxIcon"){
+        e.target.parentElement.remove();
+    }
 }
 
 

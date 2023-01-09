@@ -33,7 +33,7 @@ form{
     padding: 50px 40px;
     max-width: 850px;
     background: #fff;
-    border-radius: .5rem;
+    border-radius: 8px;
     box-shadow: 0 3px 15px rgba(0,0,0,.1);
     overflow: hidden;
 }
@@ -41,7 +41,7 @@ form{
     text-align: center;
     font-weight: 700;
     color: var(--first-color);
-    font-size: 2.25rem;
+    font-size: 35px;
     background: linear-gradient(135deg, #00caf7 0%, #7b00ff 25%, #2802ff 50%, #7b00ff 75%, #00caf7 100%);
     background-size: 400%;
     -webkit-background-clip: text;
@@ -52,7 +52,7 @@ form{
 .form-exp{
     text-align: center;
     color: #c1c1c1;
-    font-size: .9rem;
+    font-size: 14px;
     margin-bottom: 40px;
 }
 .fileUplaodContainer{
@@ -66,7 +66,7 @@ form{
     display:grid;
     place-items: center;
     border: 2px dashed #0051ff66;
-    border-radius: .5rem;
+    border-radius: 8px;
     margin: 15px 0;
     cursor: pointer;
     transition: all .25s;
@@ -103,7 +103,7 @@ form{
     animation: animate 10s linear infinite;
 }
 .fileUplaodWrapper .uploadText{
-    font-size: 1rem;
+    font-size: 14px;
     font-weight: 500;
     color: #c1c1c1;
 }
@@ -127,7 +127,7 @@ form{
     bottom: 0px;
     width: 100%;
     padding: 8px 0;
-    font-size: 1rem;
+    font-size: 14px;
     color: #fff;
     display: none;
     background: linear-gradient(135deg, #00caf7 0%, #7b00ff 25%, #2802ff 50%, #7b00ff 75%, #00caf7 100%);
@@ -148,7 +148,7 @@ form{
 }
 .inputBox label{
     color: var(--first-color);
-    font-size: .9rem;
+    font-size: 14px;
     font-weight: 700;
     display:block;
     margin: 5px 0;
@@ -167,15 +167,15 @@ form{
     width: 100%;
     border: 2px solid #f1f1f1;
     padding: 10px 12px;
-    border-radius: .3rem;
+    border-radius: 5px;
     outline:none;
-    font-size: .9rem;
+    font-size: 14px;
     transition: all .25s;
 }
 .inputBox input::placeholder,
 .inputBox textarea::placeholder{
     color: #a2a2a2;
-    font-size: .8rem;
+    font-size: 12px;
 }
 input[type=file]{
     display: none;
@@ -192,8 +192,8 @@ input[type=file]{
     background-color: #fafcff;
     border: 1px dashed #d8d8d8;
     color: #b2b2b2;
-    font-size: .75rem;
-    border-radius: .5rem;
+    font-size: 11px;
+    border-radius: 8px;
     margin: 5px 5px 0 0;
     cursor: pointer;
     transition: all .25s;
@@ -226,18 +226,18 @@ input[type=file]{
     padding-top:0;
 }
 .small-label{
-    font-size: .7rem;
+    font-size: 10px;
 }
 .CreateElemetBtn{
     position: relative;
-    margin-bottom: 1.5rem;
+    margin-bottom: 24px;
     width: 100%;
     outline: none;
     border: 2px dashed #d8d8d8;
     padding: 12px 12px;
-    font-size: .8rem;
+    font-size: 12px;
     text-align: center;
-    border-radius: .5rem;
+    border-radius:8px;
     background-color: #fafcff;
     color: #b2b2b2;
     transition: all .25s;
@@ -259,9 +259,9 @@ input[type=file]{
     top:0;
     padding: 4px 4px;
     color: #dd1a1a;
-    border-radius: .5rem;
+    border-radius: 8px;
     opacity: 0;
-    font-size: .75rem;
+    font-size: 12px;
     transition: all .25s;
     cursor: pointer;
     pointer-events: none;
@@ -279,15 +279,15 @@ input[type=file]{
     position: relative;
     display: block;
     width: 100%;
-    padding: .75rem 0;
+    padding: 12px 0;
     border:none;
     outline: none;
-    border-radius: .5rem;
+    border-radius: 8px;
     background: var(--first-color);
     color: #fff;
     text-align: center;
     transition: all .2s;
-    font-size: .9rem;
+    font-size: 14px;
 }
 .submit-btn:active{
     transform: scale(.85);
@@ -348,6 +348,16 @@ form:valid .invalid-btn{
         transform: rotate(1turn);
     }
 }
+.responseArea{
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: 8;
+    background-color: #fafcff;
+    font-family: 'Comfortaa', cursive;
+}
 .gridArea{
     position: relative;
     height:100vh;
@@ -366,18 +376,41 @@ form:valid .invalid-btn{
 }
 .errorIconBox i{
     color: #fff;
-    font-size: 14rem;
+    font-size: 200px;
 }
 .errorMessage{
     text-align:center;
 }
 .errorMessage p{
     color: #2a2a2a;
-    font-family: "Poppins",sans-serif;
-    font-size: .9rem;
+    font-size: 14px;
 }
 .errorMessage p span{
     color: #ff0000;
+    font-weight: 600;
+}
+.successIconBox{
+    width: 250px;
+    height: 250px;
+    display:grid;
+    place-items:center;
+    background: #12e494;
+    border-radius: 50%;
+    margin: 25px auto;
+}
+.successIconBox i{
+    color: #fff;
+    font-size: 200px;
+}
+.successMessage{
+    text-align:center;
+}
+.successMessage p{
+    color: #2a2a2a;
+    font-size: 14px;
+}
+.successMessage p span{
+    color: #12e494;
     font-weight: 600;
 }
 .skeleton-card{
@@ -469,7 +502,7 @@ form:valid .invalid-btn{
     margin: 50px 0;
     width: 350px;
     max-width: 100%;
-    border-radius: .5rem;
+    border-radius: 8px;
     height: 10px;
     background-color: #fff;
     box-shadow: 0 0 5px #f5f5f5;
@@ -495,7 +528,30 @@ form:valid .invalid-btn{
 }
 
   
-
+.forgot-password{
+    position: relative;
+    display: inline-block;
+    font-size: .75rem;
+    margin-bottom: 15px;
+    color: var(--main-light-color);
+    text-decoration: none;
+    transition: all .25s;
+}
+a.forgot-password:hover{
+    color: var(--purple-color);
+}
+form .link-btn{
+    margin: 15px auto 0 auto !important;
+}
+.password-area{
+    position: relative;
+    margin: auto;
+    max-width: 450px;
+    text-align: center;
+}
+.password-area label{
+    text-align: left;
+}
 @media screen and (max-width: 768px) {
     form{
         padding: 40px 15px;
@@ -515,10 +571,10 @@ form:valid .invalid-btn{
 }
 @media screen and (max-width: 550px) {
     .form-title{
-        font-size: 1.75rem;
+        font-size: 28px;
     }
     .form-exp{
-        font-size: .75rem;
+        font-size: 12px;
     }
     .grid{
         grid-template-columns: repeat(1,1fr);

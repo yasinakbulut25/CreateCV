@@ -1,19 +1,24 @@
-<?php !defined("index") ? header("location: hata") : null ?>
+<?php !defined("index") ? header("location: demo") : null ?>
+
 <?php
 
     $profile = "assets/img/profiles/profile.png";
     $name = "Name Surname";
     $jobRole = "Frontend Developer";
-    $phoneNumber = "+90 5984153278";
-    $address = "City/Town";
-    $email = "name@example.com";
-    $webSite = "namesurname.com";
     $about = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially. Lorem Ipsum is simply dummy text of the printing and typesetting. It has survived not only five centuries, but also the leap into.";
-    $instagram = "@name_surname";
-    $twitter = "";
-    $linkedin = "";
-    $facebook = "";
-    $github = "";
+    
+    $fetchUser = [
+        "address" => "City/Town",
+        "phoneNumber" => "+90 5984153278",
+        "email" => "name@example.com",
+        "webSite" => "namesurname.com",
+        "instagram" => "@name_surname",
+        "twitter" => "",
+        "linkedin" => "",
+        "facebook" => "",
+        "github" => "",
+        "medium" => ""
+    ];
 
     $fetchExpData = array(
         array( "expJobRole" => "Your Job Title", "expCompanyName" => "Company Name", "expStartingYear" => "2032", "expEndingYear" => "2035", "expJobDescription" => "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy scrambled it to make a type specimen book."),
@@ -42,6 +47,7 @@
         array( "refName" => "Jason Chapple", "refJobTitle" => "Frontend Developer"),
         array( "refName" => "Frank Maclean", "refJobTitle" => "Backend Developer"),
     );
+
 
     $fetchSkillData = array(
         array( "skillName" => "JavaScript", "skillLevel" => "85"),

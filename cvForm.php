@@ -1,8 +1,41 @@
-<?php
-    $socialMedia = array("instagram","twitter","linkedin","facebook","github");
-    include "cvPost.php";
-?>
+<?php !defined("index") ? header("location: demo") : null ?>
 
+<?php
+    if(!isset($_SESSION['user'])){
+        ?>
+        <div class="formLinkArea">
+            <div class="formLinkBox">
+                <h1>CV Kaydet ve Düzenle!</h1>
+                <p>Oluşturduğun özgeçmişlerini kaydetmek ve daha sonrasında düzenlemek ister misin?</p>
+                <a href="<?= $siteUrl; ?>/register" class="formLinkText">
+                    <span>ÜCRETSİZ KAYIT OL!</span>
+                </a>
+            </div>
+        </div>
+        <?php
+    }   
+
+    include "cvPost.php";
+
+    if(@$_GET['content']){
+        if($_GET['content'] == $_SESSION['user']){
+            $getUser = @$_GET['content'];
+
+            $findUser = $data->prepare("SELECT * FROM members where username=? limit 1");
+            $findUser->execute(array($getUser));
+            $fetchUser = $findUser->fetch();
+            
+            $getUserName = $fetchUser['name'];
+        }else{
+            $locationUrl = $siteUrl . "form";
+            header("refresh: 0; url=$locationUrl");
+            return;
+        }
+    }else{
+        $getUserName = "";
+    }
+    
+?>
 <div class="container-lg">
     <form class="cvCreateForm" action="create" method="post" enctype="multipart/form-data">
         <h1 class="form-title">Create Your CV</h1>
@@ -29,7 +62,7 @@
                         
                     </div>
                 </div>
-                <input id="default-btn" name="profile" type="file" hidden>
+                <input id="default-btn" name="profile" required type="file" accept="image/png, image/jpeg" hidden>
             </div>
         </div>
 
@@ -37,7 +70,7 @@
 
             <div class="inputBox">
                 <label for="">Name and Surname <span title="required">*</span></label>
-                <input type="text" name="name" placeholder="Name and Surname" required maxlength="100">
+                <input type="text" name="name" placeholder="Name and Surname" required maxlength="100" value="<?= $getUserName; ?>">
             </div>
 
             <div class="inputBox">
@@ -130,7 +163,7 @@
                     </div>
                     <div class="inputBox">
                         <span class="small-label">End Year</span>
-                        <input type="text" name="expEndingYear[]" maxlength="4" placeholder="2018" required>
+                        <input type="text" name="expEndingYear[]" maxlength="10" placeholder="2018" required>
                     </div>
                 </div>
                 <div class="inputBox">
@@ -157,7 +190,7 @@
                     </div>
                     <div class="inputBox">
                         <span class="small-label">End Year</span>
-                        <input type="text" name="eduEndingYear[]" maxlength="4" placeholder="2018" required>
+                        <input type="text" name="eduEndingYear[]" maxlength="10" placeholder="2018" required>
                     </div>
                 </div>
             </div>
@@ -259,9 +292,3 @@
         </div>
     </form>
 </div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="./assets/js/createElement.js"></script>
-<script src="./assets/js/fileUpload.js"></script>
-</body>
-</html>
